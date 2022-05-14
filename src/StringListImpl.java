@@ -10,7 +10,7 @@ public class StringListImpl implements StringListInterface {
     @Override
     public Integer add(int item) {
         if (pointer == array.length - 1)
-            resize(array.length * 2);
+            grow((int) (array.length * 1.5));
         array[pointer++] = item;
         return item;
     }
@@ -55,7 +55,7 @@ public class StringListImpl implements StringListInterface {
         array[pointer] = null;
         pointer--;
         if (array.length > INIT_SIZE && pointer < array.length / CUT_RATE)
-            resize(array.length / 2);
+            grow(array.length / 2);
         return item;
     }
 
@@ -70,7 +70,7 @@ public class StringListImpl implements StringListInterface {
         array[pointer] = null;
         pointer--;
         if (array.length > INIT_SIZE && pointer < array.length / CUT_RATE)
-            resize(array.length / 2);
+            grow(array.length / 2);
         return index;
     }
 
@@ -136,7 +136,7 @@ public class StringListImpl implements StringListInterface {
 
     /*add method for scaling*/
     @Override
-    public void resize(int newLength) {
+    public void grow(int newLength) {
         Integer[] newArray = new Integer[newLength];
         System.arraycopy(array, 0, newArray, 0, pointer);//old massive copy to new
         array = newArray;

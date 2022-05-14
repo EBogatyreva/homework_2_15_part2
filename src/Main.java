@@ -11,8 +11,8 @@ public class Main {
         StringListImpl stringList = new StringListImpl();
         Random r = new Random();
 
-        for (Integer i = 0; i < 100_000; i++) {
-            stringList.add(r.nextInt(100_000) + 1);
+        for (Integer i = 0; i < 100; i++) {
+            stringList.add(r.nextInt(100) + 1);
         }
 
         arrayList = stringList.toArray();
@@ -66,5 +66,6 @@ public class Main {
         System.out.println(" ");
         System.out.println(stringList.contains(arrayList3, 15));
 
+        System.out.println(stringList.size());
     }
 }

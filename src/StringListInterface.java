@@ -74,6 +74,6 @@ public interface StringListInterface {
     Integer[] toArray();
 
     /*add method for scaling*/
-    void resize(int newLength);
+    void grow(int newLength);
 
 }
